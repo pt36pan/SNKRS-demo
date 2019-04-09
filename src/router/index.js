@@ -1,15 +1,18 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/home',
+      component: (resolve) => require(['../views/Home/Home.vue'], resolve),
+    },
+    {
+      // 当访问的路径不存在时，重定向到index
+      path: '*',
+      redirect: '/home'
     }
-  ]
-})
+  ],
+});

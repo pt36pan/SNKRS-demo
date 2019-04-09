@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
-    <menu-bottom :menus="menusArray" @menu-bottom-click="handleMenuBottom"></menu-bottom>
+
+  <div class="home">
   </div>
+
 </template>
 
-<script>
-
-  export default {
-    name: 'App',
-    component: {},
+<script type="text/ecmascript-6">
+  export default{
+    components: {},
+    props: {},
+    computed: {},
     data(){
       return {
         menusArray: [
@@ -40,6 +40,16 @@
         ]
       }
     },
+    created: function () {
+      //  实例创建完成后调用，此阶段完成了数据的观测等，但尚未挂载，还不可用。需要初始化处理一些数据时会比较有用。
+
+    },
+    mounted(){
+      //  el挂载到实例上后会调用，第一个业务逻辑一般从这里开始。
+    },
+    beforeDestroy: function () {
+      //  实例销毁之前调用。主要是解绑一些使用addEventListener监听的事件等。
+    },
     methods: {
       handleMenuBottom(data){
         let _this = this;
@@ -49,26 +59,13 @@
         }
       }
     }
-  };
-</script>
-
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    position: relative;
-    width: 100%;
-    height: 100%;
   }
-
-  .icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+</script>
+<style scoped>
+  .home {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 60px;
   }
 </style>
